@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/itinerary`;
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/itinerary`;
 
 const initialState = {
   itinerary: null,

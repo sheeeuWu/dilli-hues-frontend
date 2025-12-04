@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { IoHomeOutline } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 import { FaLandmark, FaPaw, FaUtensils, FaTree, FaHeart } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
 import {
@@ -117,9 +117,9 @@ export default function HeroSearchSection() {
           <button
             onClick={scrollLeft}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md
-                     p-2 rounded-full z-10 hidden sm:flex font-bold hover:bg-gray-100"
+                     pt-2 pr-1.5 pb-2 pl-1 border rounded-md z-10 hidden sm:flex font-bold hover:bg-gray-100"
           >
-            ‹
+            <FaChevronLeft className="text-orange-600" />
           </button>
         )}
 
@@ -150,9 +150,9 @@ export default function HeroSearchSection() {
           <button
             onClick={scrollRight}
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md
-                     p-2 rounded-full z-10 hidden sm:flex font-bold hover:bg-gray-100"
+                     pt-2 pr-1 pb-2 pl-1.5 border rounded-md z-10 hidden sm:flex font-bold hover:bg-gray-100"
           >
-            ›
+            <FaChevronRight className="text-orange-600" />
           </button>
         )}
       </div>

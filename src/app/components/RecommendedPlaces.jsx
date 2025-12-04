@@ -14,9 +14,8 @@ export default function RecommendedPlaces() {
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   useEffect(() => {
-  dispatch(getSuggestedPlaces());
-}, [dispatch]);
-
+    dispatch(getSuggestedPlaces());
+  }, [dispatch]);
 
   const scroll = (direction) => {
     const current = scrollRef.current;
@@ -33,7 +32,7 @@ export default function RecommendedPlaces() {
     const el = scrollRef.current;
     if (!el) return;
     setShowLeftArrow(el.scrollLeft > 0);
-    setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth);
+    setShowRightArrow(Math.ceil(el.scrollLeft + el.clientWidth) < el.scrollWidth - 1); //handles fractional pixels
   };
 
   useEffect(() => {
@@ -44,12 +43,13 @@ export default function RecommendedPlaces() {
     }
   }, []);
 
-
   return (
     <section className="mt-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xl font-bold mb-1">You might like these</h2>
-        <p className="text-sm text-gray-500 mb-4">More things to do in New Delhi</p>
+        <p className="text-sm text-gray-500 mb-4">
+          More things to do in New Delhi
+        </p>
 
         <div className="relative">
           {showLeftArrow && (
@@ -66,26 +66,25 @@ export default function RecommendedPlaces() {
             className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-2 scrollbar-hide"
           >
             {loading ? (
-  <p className="text-gray-400">Loading suggestions...</p>
-) : (
-  suggestedPlaces.map((item) => {
-    const image = item.images?.[0] || "/images/placeholder.png";
+              <p className="text-gray-400">Loading suggestions...</p>
+            ) : (
+              suggestedPlaces.map((item) => {
+                const image = item.images?.[0] || "/images/placeholder.png";
 
-
-  return (
-    <PlaceCard
-      key={item.id}
-      place={{
-        id: item.id,
-        image,
-        title: item.name,
-        subtitle: item.category?.name || "Spot",
-        location: item.location,
-      }}
-      />
-    );
-  })
-)}
+                return (
+                  <PlaceCard
+                    key={item.id}
+                    place={{
+                      id: item.id,
+                      image,
+                      title: item.name,
+                      subtitle: item.category?.name || "Spot",
+                      location: item.location,
+                    }}
+                  />
+                );
+              })
+            )}
           </div>
 
           {showRightArrow && (

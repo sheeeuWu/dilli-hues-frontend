@@ -34,7 +34,7 @@ export default function PlaceCard({ place }) {
 
   return (
     <Link href={`/place/${place.id}`} className="block">
-      <div className="relative w-64 flex-shrink-0 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+      <div className="relative w-64 flex-shrink-0 rounded-xl overflow-hidden shadow mb-2 hover:shadow-md transition">
         {/* Image */}
         <div className="relative h-48 w-full">
           <Image
