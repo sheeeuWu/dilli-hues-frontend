@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const PlaceIndex = dynamic(() => import("./index"));
 
 // Re-export generation helpers
-export { generateStaticParams } from "./index";
+// export { generateStaticParams } from "./index";
 
 // Metadata (optional)
 export const metadata = {
