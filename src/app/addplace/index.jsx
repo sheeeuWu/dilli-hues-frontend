@@ -2,8 +2,8 @@
 import { useState } from "react";
 import StaticHeader from "../../app/components/StaticHeader"
 import Footer from "../../app/components/Footer";
-import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
+import StepOne from "./stepOne";
+import StepTwo from "./stepTwo";
 
 export default function AddPlacePage() {
   const [step, setStep] = useState(1);
