@@ -57,7 +57,7 @@ export default function UserDropdown() {
                 </a>
               </li>
               <li>
-                <a href="/contribute" className="flex items-center gap-2 py-2 border-b">
+                <a href="/addplace" className="flex items-center gap-2 py-2 border-b">
                   <FaPenFancy className="w-4 h-4" />
                   Contribute
                 </a>
@@ -102,7 +102,7 @@ export default function UserDropdown() {
                 </a>
               </li>
               <li>
-                <a href="/contribute" className="flex items-center gap-2 px-4 py-2 hover:bg-orange-50 transition">
+                <a href="/addplace" className="flex items-center gap-2 px-4 py-2 hover:bg-orange-50 transition">
                   <FaPenFancy className="w-4 h-4" />
                   Contribute
                 </a>

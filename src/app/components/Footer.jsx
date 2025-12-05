@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-3 text-black">About DilliHues</h4>
           <ul className="space-y-2">
-            <li><a href="#">About Us</a></li>
+            <li><a href="/about-us">About Us</a></li>
             <li><a href="#">Press</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Contact</a></li>

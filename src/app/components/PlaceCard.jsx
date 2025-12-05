@@ -40,9 +40,10 @@ export default function PlaceCard({ place }) {
           <Image
              src={imageUrl}
             alt={place.title}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-t-xl"
+            // layout="fill"
+            // objectFit="cover"
+            fill
+            className="object-cover rounded-t-xl"
           />
           {/* Wishlist Icon */}
           <button
