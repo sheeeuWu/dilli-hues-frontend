@@ -21,7 +21,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-3 text-black">Explore</h4>
           <ul className="space-y-2">
-            <li><a href="#">Add a Place</a></li>
+            <li><a href="/addplace">Add a Place</a></li>
             <li><a href="#">Write a Review</a></li>
             <li><a href="#">Top Picks</a></li>
             <li><a href="#">Hidden Gems</a></li>
@@ -51,7 +51,7 @@ export default function Footer() {
             <label className="block text-black font-semibold mb-1">City</label>
             <select className="w-full px-3 py-2 border rounded">
               <option>Delhi</option>
-              {/* <option>United States</option> */}
+              {/* <option>Jaipur</option> */}
             </select>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="max-w-5xl mx-auto mt-8 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-xs text-gray-500 text-center md:text-left">
-          © {new Date().getFullYear()} DailyHues. All rights reserved.
+          © {new Date().getFullYear()} DilliHues. All rights reserved.
         </p>
         <div className="flex gap-4 text-lg text-gray-700">
           <FaFacebookF className="hover:text-black cursor-pointer" />
