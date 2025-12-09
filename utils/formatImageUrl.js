@@ -1,5 +1,5 @@
 export function formatImageUrl(url) {
-  if (!url) return "/images/placeholder.jpg";
+  if (!url) return "/images/placeholder.png";
 
   // Uploaded from local server
   if (url.startsWith("/upload")) {
@@ -13,7 +13,7 @@ export function formatImageUrl(url) {
     const fileId = idMatch?.[0];
     return fileId
       ? `https://drive.google.com/uc?export=view&id=${fileId}`
-      : "/images/placeholder.jpg";
+      : "/images/placeholder.png";
   }
 
   // Already a valid external URL (e.g., Unsplash)
