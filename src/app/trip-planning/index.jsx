@@ -9,7 +9,10 @@ import ItineraryCard from "./ItineraryCard";
 import TravelTime from "./TravelTimeComponent";
 
 import { useDispatch, useSelector } from "react-redux";
-import { generateItinerary, clearItinerary } from "../../../redux/slices/itinerarySlice";
+import {
+  generateItinerary,
+  clearItinerary,
+} from "../../../redux/slices/itinerarySlice";
 
 // Dummy itinerary with coords
 const mockItinerary = [
@@ -17,7 +20,8 @@ const mockItinerary = [
     title: "Breakfast at Ama Cafe",
     time: "9:00 AM – 10:00 AM",
     location: "Majnu Ka Tila",
-    description: "Chill Tibetan-style cafe with great coffee and breakfast options.",
+    description:
+      "Chill Tibetan-style cafe with great coffee and breakfast options.",
     coords: [77.2395, 28.7089],
     image: "/images/ama-cafe.jpg",
     tags: ["Cafe", "Cozy", "Popular"],
@@ -41,7 +45,8 @@ const mockItinerary = [
     title: "Quick Street Food at Janpath",
     time: "12:15 PM – 1:00 PM",
     location: "Connaught Place",
-    description: "Wrap up with local snacks and quick shopping at Janpath market.",
+    description:
+      "Wrap up with local snacks and quick shopping at Janpath market.",
     coords: [77.2186, 28.6328],
     image: "/images/janpath.jpg",
     tags: ["Street Food", "Shopping"],
@@ -51,16 +56,14 @@ const mockItinerary = [
   },
 ];
 
-
 export default function TripPlanningPage() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { itinerary, loading } = useSelector((state) => state.itinerary);
 
   const handleGenerate = ({ prompt, tags }) => {
-  dispatch(clearItinerary());
-  dispatch(generateItinerary({ prompt, tags }));
-};
-
+    dispatch(clearItinerary());
+    dispatch(generateItinerary({ prompt, tags }));
+  };
 
   return (
     <>
@@ -71,7 +74,8 @@ export default function TripPlanningPage() {
         <div>
           <h1 className="text-3xl font-bold mb-4 mt-20">Plan Your Trip</h1>
           <p className="text-gray-600 mb-6">
-            Describe your vibe and interests — we’ll suggest a personalized plan.
+            Describe your vibe and interests — we’ll suggest a personalized
+            plan.
           </p>
 
           <UserPromptForm onGenerate={handleGenerate} />
@@ -79,36 +83,42 @@ export default function TripPlanningPage() {
           {loading && <SkeletonLoader />}
 
           {itinerary?.places?.length > 0 && (
-  <div className="mt-10 space-y-6">
-    {itinerary.places.map((item, i) => (
-      <div key={i}>
-        <ItineraryCard
-  step={{
-    title: item.name,
-    location: item.location,
-    description: item.description,
-    image: item.images?.[0]
-      ? item.images[0].startsWith("/upload")
-        ? `http://localhost:2807${item.images[0]}`
-        : item.images[0]
-      : "/images/placeholder.jpg",
-    tags: item.tags || [],
-    category: item.category?.name || "Spot",
-    hasParking: item.parking_available,
-    budget: item.budget_per_head === "Low" ? "₹0–200" : item.budget_per_head === "Medium" ? "₹200–500" : "₹500+",
-  }}
-  stepNumber={i + 1}
-/>
+            <div className="mt-10 space-y-6">
+              {itinerary.places.map((item, i) => (
+                <div key={i}>
+                  <ItineraryCard
+                    step={{
+                      title: item.name,
+                      location: item.location,
+                      description: item.description,
+                      image: item.images?.[0]
+                        ? item.images[0].startsWith("/upload")
+                          ? `http://localhost:2807${item.images[0]}`
+                          : item.images[0]
+                        : "/images/placeholder.png",
+                      tags: item.tags || [],
+                      category: item.category?.name || "Spot",
+                      hasParking: item.parking_available,
+                      budget:
+                        item.budget_per_head === "Low"
+                          ? "₹0–200"
+                          : item.budget_per_head === "Medium"
+                          ? "₹200–500"
+                          : "₹500+",
+                    }}
+                    stepNumber={i + 1}
+                  />
 
-        {i < itinerary.travelInfo.length && (
-          <TravelTime
-            time={`${Math.round(itinerary.travelInfo[i].duration_value / 60)} mins`}
-            mode={itinerary.mode_of_travel}
-          />
-        )}
-      </div>
-    ))}
-
+                  {i < itinerary.travelInfo.length && (
+                    <TravelTime
+                      time={`${Math.round(
+                        itinerary.travelInfo[i].duration_value / 60
+                      )} mins`}
+                      mode={itinerary.mode_of_travel}
+                    />
+                  )}
+                </div>
+              ))}
 
               <div className="mt-8 flex gap-4">
                 <button

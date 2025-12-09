@@ -54,7 +54,7 @@ export default function LikedPlacesPage() {
                 className="border rounded-lg shadow overflow-hidden"
               >
                 <Image
-                  src={place.image || "/images/default.jpg"}
+                  src={place.image || "/images/placeholder.png"}
                   alt={place.name}
                   width={400}
                   height={250}
